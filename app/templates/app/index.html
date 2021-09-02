@@ -1,0 +1,74 @@
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block title %}
+Gronthon
+{% endblock %}
+
+{% block body %}
+<div class="home">
+        <h1>পিডিএফ থেকে ইপাব, মোবি তৈরি করুন,</h1>        
+        <h4>বাংলাকে এগিয়ে নিয়ে যাওয়াই মোদের প্রয়াস</h4>
+        <button type="button" name="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Pdf Upload</button>
+
+        <div class="container2">
+            <div class="col-70">
+                <video src="{% static 'app/videos/video.mp4' %}" controls poster="{% static 'app/images/learn-4226965_1920.jpg' %}">
+                </video>
+            </div>
+            <div class="col-30">
+                <div class="icontext">
+                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                    <h3> পিডিএফ থেকে টেক্সটে রুপান্তর। টেক্সট ফাইল এডিট করা।</h3>
+                </div>
+                <div class="icontext">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                    <h3>.mobi, .epub, .pdf এবং .docx ফাইল ডাউনলোড করা। একাধিক পিডিএফ ফাইল সংরক্ষন।</h3>
+                </div>
+                <div class="icontext">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    <h3>কাজ সেইভ করে রাখা এবং পুনোরায় এডিট করা।</h3>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="lastcontainer">
+    <div class="bg">
+        <div class="abouts">
+            <h2>মোদের লক্ষ্য</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nemo facere impedit, vitae, dolor molestias, at sapiente, reiciendis deserunt provident molestiae ratione. Repudiandae veniam asperiores aut nesciunt assumenda repellat in, adipisci similique possimus natus perferendis accusantium doloremque est commodi magnam unde iste. Perspiciatis, laborum, corporis. Vel fugiat, officiis facilis aperiam.</p>
+        </div>
+        <div class="abouts">
+            <h2>মোদের কর্ম</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nemo facere impedit, vitae, dolor molestias, at sapiente, reiciendis deserunt provident molestiae ratione. Repudiandae veniam asperiores aut nesciunt assumenda repellat in, adipisci similique possimus natus perferendis accusantium doloremque est commodi magnam unde iste. Perspiciatis, laborum, corporis. Vel fugiat, officiis facilis aperiam.</p>
+        </div>
+        <div class="abouts">
+            <h2>মোদের দর্শন</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nemo facere impedit, vitae, dolor molestias, at sapiente, reiciendis deserunt provident molestiae ratione. Repudiandae veniam asperiores aut nesciunt assumenda repellat in, adipisci similique possimus natus perferendis accusantium doloremque est commodi magnam unde iste. Perspiciatis, laborum, corporis. Vel fugiat, officiis facilis aperiam.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <form class="" action="{% url 'index' %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Upload your pdf</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="file" name="pdf" multiple>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+
+
+{% endblock %}

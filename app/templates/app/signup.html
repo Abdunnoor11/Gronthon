@@ -1,0 +1,39 @@
+{% extends "app/layout.html" %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block body %}
+<div class="cntner">
+    <form class="form" action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+        <h3>Sign Up</h3>
+        <!-- <div class="section">
+            <label for="username">Username</label><br>
+            <input type="text" id="fname" name="username" placeholder="&#xf007; Type your username">
+        </div> -->
+        <div class="section">
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="&#xf0e0; Type your email">
+        </div>
+        <div class="section">
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password1" placeholder="&#xf023; Type your password">
+        </div>
+        <div class="section">
+            <label for="password2">Confirm password</label><br>
+            <input type="password" id="password2" name="password2" placeholder="&#xf023; Type your password again">
+            <span class="psw"><a href="#">Forgot password?</a></span>
+        </div>
+        <input type="submit" name="" value="Submit">
+        <h6>or</h6>
+        <div class="login-social-media">
+            <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-google"></a>
+        </div>
+        <h5><a href="{% url 'login' %}">Login</a></h5>
+    </form>
+</div>
+{% endblock %}

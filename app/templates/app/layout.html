@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/login.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <nav>
+        <h6>শনিবার, ২৬ আষাঢ় ১৪২৮- ১০-০৭-২০২১</h6>
+        <hr>
+        <div class="main-nav">
+            <a href="{% url 'index' %}">
+                <h2>গ্রন্থন</h2>
+            </a>
+            <div class="links">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'mybooks' %}">My Books</a>
+                <a href="{% url 'profile' %}">Profile</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}">Log Out</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    {% block body %}
+
+    {% endblock %}
+    <footer>
+        <h3>About Us</h3>
+        <p id="aboutus">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa porro ullam, nam eius repudiandae! Ut ducimus, dolorum quos perspiciatis ex esse nemo? Commodi quisquam repellendus dolorem incidunt in laboriosam, velit quae modi cum perferendis, totam ea, ab impedit inventore minus nesciunt suscipit magni molestiae doloribus voluptatum enim! Hic, quisquam, doloremque!</p>
+        <h5>Follow Us</h5>
+        <div class="login-social-media footerlink">
+                <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google"></a>
+        </div>
+        <hr>
+        <p id="Copyright">Copyright ©2021 All rights reserved | This Website is made with by Abdun Noor</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+
+</html>

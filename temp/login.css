@@ -1,0 +1,324 @@
+{
+    % load static %
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-bottom: 25px;
+    position: relative;
+}
+
+nav h6 {
+    margin: 15px 15% 15px 15%;
+    font-size: 13px;
+}
+
+hr {
+    margin: 0;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.main-nav {
+    margin: 0 15% 0 15%;
+    padding-top: 1%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.links {
+    margin-top: 7px;
+}
+
+.links a {
+    padding-left: 25px;
+}
+
+.cntner {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(176, 121, 255);
+    background-image: url(pexels-min-an-694740.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.form {
+    margin-top: 8%;
+    margin-bottom: 15%;
+    padding: 5%;
+    background: white;
+    text-align: center;
+    border-radius: 26px;
+}
+
+.section {
+    margin-top: 15%;
+    text-align: left;
+    /* border-bottom-style: solid; */
+    border-bottom: 1px solid black;
+}
+
+.section label {
+    margin-bottom: 5px;
+}
+
+.form input[type=text], [type=email], [type=password] {
+    width: 100%;
+    border: none;
+    background: none;
+    box-sizing: border-box;
+    border: none;
+}
+
+.form input[type=text]:focus {
+    outline: none;
+}
+
+.form [type=submit] {
+    width: 75%;
+    margin: 5%;
+    border-radius: 25px;
+    border-style: none;
+    border: 1px solid black;
+    outline: none;
+    background: #005484;
+    color: white;
+}
+
+.form input[type=submit]:hover {
+    background: #0268a2;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+    font-size: 13px;
+}
+
+.login-social-media {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+input {
+    font-family: 'FontAwesome';
+}
+
+.fa {
+    padding: 9px;
+    font-size: 17px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-google {
+    background: #dd4b39;
+    color: white;
+}
+
+.form h5 {
+    margin-top: 25px;
+}
+
+footer {
+    padding: 5% 15%;
+    text-align: center;
+    background: #2B2B2B;
+    color: white;
+}
+
+.footerlink {
+    padding-left: 35%;
+    padding-right: 35%;
+    padding-bottom: 3%;
+}
+
+#aboutus {
+    padding: 0% 25%;
+    margin-bottom: 5%;
+}
+
+#Copyright {
+    text-align: center;
+    padding: 2% 0%;
+    color: rgb(182, 182, 182);
+}
+
+.home {
+    color: white;
+    width: 100%;
+    height: 724px;
+    background-image: url("pexels-stanislav-kondratiev-2908984.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top: 17%;
+    margin-bottom: 50%;
+    align-content: space-between;
+}
+
+
+.home h1 {
+    margin-bottom: 9px;
+}
+
+.home h4 {
+    color: #FAFF00;
+}
+
+.home button{
+    font-size: 25px;
+    color: white;
+    font-family: Times New Roman;
+    font-style: normal;
+    font-weight: bold;
+    padding: 1% 3% 1% 3%;
+    margin-top: 5%;
+    background: #BE0000;
+    box-shadow: 0px 0px 41px 1px rgba(0, 0, 0, 0.75);
+    border-radius: 180px;
+    border-style: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.home button:hover{
+    background-color: #d02929;
+}
+
+.container2{
+    /* width: 50%; */
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    margin: 5% 15%;
+    padding: 5% 2%;
+
+    /* margin: 20% 15% 0% 15%; */
+}
+
+.col-70{
+
+
+}
+
+.col-30{
+    text-align: left;
+    width: 30%;
+}
+
+.icontext {
+    margin: 0 0 9% 0;
+}
+
+.fa-file-text-o, .fa-download, .fa-floppy-o{
+    padding: 0px;
+    margin: 0px;
+}
+
+video{
+    height: 300px;
+}
+
+.lastcontainer{
+    background-image: url("pexels-min-an-694740.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5% 0%;
+    margin-bottom: 15%;
+}
+
+.bg{
+    background-color: black;
+    height: 400px;
+    margin: 0% 15%;
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+    padding: 5% 10%;
+
+}
+
+.abouts{
+    color: white;
+    margin: 0% 1%;;
+}
+
+.abouts h2{
+    margin-bottom: 5%;
+}
+
+
+/* Edit Page */
+
+#edit{
+    background-color: rgb(96, 96, 96);
+    padding: .5% 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.n{
+    color: white;
+    background-color: rgb(0, 0, 0);
+    margin: 0 5%;
+}
+
+.n:hover{
+    background-color: rgb(22, 22, 22);
+}
+
+#editform{
+    text-align: center;
+    margin: 5%;
+}
+
+.offcanvas{
+    /* color: red; */
+    width: 50%;
+}
+
+.offcanvas-body img{
+    width: 100%;
+}
+
+/*  */
