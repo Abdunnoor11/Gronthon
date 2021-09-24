@@ -16,10 +16,11 @@ class Image(models.Model):
     pdf = models.ForeignKey(Files, on_delete=models.SET_NULL, blank=True, null=True)
     image = models.ImageField(upload_to='pics')
 
+    def __str__(self):
+        return os.path.basename(self.image.name)
 
 class Text(models.Model):
     image = models.OneToOneField(Image, on_delete=models.CASCADE)
     text = RichTextField(blank=True, null=True)
 
 
-#

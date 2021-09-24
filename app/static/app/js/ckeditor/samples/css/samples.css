@@ -1573,7 +1573,7 @@ div.toolbarModifier-hints dl dd:after {
   color: #575757;
   padding: 10px;
   width: 100%;
-  min-height: 500px;
+  min-height: 100px;
   margin: 0;
   resize: none;
   outline: none;

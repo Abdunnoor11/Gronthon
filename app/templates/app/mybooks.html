@@ -27,7 +27,7 @@ Gronthon
           <td><a href="{% url 'edit' pdf.id 1 %}"><i class="fa fa-file-text" aria-hidden="true"></i></a></td>
           <td>
               <a href="">.mobi</a>
-              <a href="">.epub</a>
+              <a href="{% url 'epudownload' pdf.id %}">.epub</a>
               <a href="">.pdf</a>
               <a href="">.docx</a>
           </td>

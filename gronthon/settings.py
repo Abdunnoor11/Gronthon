@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_extensions',
+
     'django.contrib.sites',
 
     'app',
@@ -179,3 +181,10 @@ LOGIN_REDIRECT_URL = 'index'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '460215798550434'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '0add866d38e8da05f0c399ab3a05b441'  # App Secret
+
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+  'app_labels': ["app"],
+}

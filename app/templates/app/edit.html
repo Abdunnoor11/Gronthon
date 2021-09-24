@@ -17,26 +17,57 @@
 
 <body>
     <nav id="edit">
-        <a class="fa n" href="">&#xf053;</a>
-        <a class="fa n" href="">&#xf0ed;</a>
+        <a class="fa n" href="{% url 'mybooks'%}">&#xf053;</a>
+        <a class="fa n" href="{% url 'download'%}">&#xf0ed;</a>
     </nav>
-    <form class="ckeditor" action="#" method="post">
-        {% csrf_token %}
-        <textarea name="editor1" id="editor1" rows="10" cols="80">
 
-        </textarea>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto px-0">
+                <div id="sidebar" class="collapse collapse-horizontal show border-end">
+                    <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
+                        <img src="{{ image.image.url }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <main class="col ps-md-2 pt-2">
+                <a href="" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><i class="bi bi-list bi-lg py-2 p-1"></i> Show Book</a>                                
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <form class="ckeditor" action="{% url 'edit' id page %}" method="post">
+                            {% csrf_token %}
+                            <textarea name="editor1" id="editor1" rows="10" cols="80">
+                                {% for text in texts %}
+                                    {{ text }} <br><br>
+                                {% endfor %}    
+                                
+                            </textarea>
+                    
+                            <script>
+                                // Replace the <textarea id="editor1"> with a CKEditor 4
+                                // instance, using default configuration.
+                                CKEDITOR.disableAutoInline = true;
+                                
+                                CKEDITOR.replace('editor1', {
+                                    uiColor: '#8f0000',
+                                    height: 600,                                                       
+                                });
+                            </script>
+                            <a href="{% url 'edit' id previous %}">Previous</a>
+                            <input type="submit" value="Save">
+                            <input type="number" name="pageNumber">
+                            <a href="{% url 'edit' id next %}">Next</a>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    
 
-        <script>
-            // Replace the <textarea id="editor1"> with a CKEditor 4
-            // instance, using default configuration.
-            CKEDITOR.disableAutoInline = true;
-
-            CKEDITOR.replace('editor1', {
-                uiColor: '#8f0000',
-            });
-        </script>
-        <input type="submit" name="" value="Save">
-    </form>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
 </body>

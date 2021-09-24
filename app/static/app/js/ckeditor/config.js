@@ -29,6 +29,11 @@ CKEDITOR.editorConfig = function( config ) {
 	// Remove some buttons provided by the standard plugins, which are
 	// not needed in the Standard(s) toolbar.
 	config.removeButtons = 'Underline,Subscript,Superscript';
+	config.disableNativeSpellChecker = false;
+	config.scayt_autoStartup = true;
+	
+
+	config.removePlugins = 'liststyle,tabletools,scayt,menubutton,contextmenu';
 
 	// Set the most common block elements.
 	config.format_tags = 'p;h1;h2;h3;pre';

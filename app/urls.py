@@ -12,5 +12,11 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
 
     path('edit/<int:id>/<int:page>', views.edit, name='edit'),
+    path('download/', views.download, name='download'),
+    
+    path('epudownload/<int:id>', views.epudownload, name='epudownload'),
+    
+    
 
 ]
+
