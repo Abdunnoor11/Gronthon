@@ -20,18 +20,21 @@ poppler_path = r"C:\Program Files\poppler-0.68.0\bin"
 # Create your views here.
 def index(request):
     if request.method == 'POST':
-        pdfs = request.FILES.getlist('pdf')
-        print(pdfs)
-        for pdf in pdfs:
-            file = Files.objects.create(user=request.user, pdf=pdf)
-            file.save()
-            pdftoimages(file)
-            try:
-                shutil.rmtree("imag/")
-            except OSError as e:
-                print("Error: %s - %s." % (e.filename, e.strerror))
+        if request.user.is_authenticated:
+            pdfs = request.FILES.getlist('pdf')
+            # print(pdfs)
+            for pdf in pdfs:
+                file = Files.objects.create(user=request.user, pdf=pdf)
+                file.save()
+                pdftoimages(file)
+                try:
+                    shutil.rmtree("imag/")
+                except OSError as e:
+                    print("Error: %s - %s." % (e.filename, e.strerror))
 
-        return redirect('mybooks')
+            return redirect('mybooks')
+        else:
+            return redirect('login')
     else:
         return render(request, "app/index.html")
 
@@ -79,8 +82,50 @@ def mybooks(request):
     else:
         return redirect('login')
 
+def delete(request, id):
+    if request.user.is_authenticated:
+        pdf = Files.objects.get(id=id)
+        images = Image.objects.filter(pdf_id=id)
+        # print(images)
+        for image in images:
+            texts = Text.objects.filter(image_id=image.id)
+            texts.delete()
+            # print(texts)
+        images.delete()
+        pdf.delete()
+        return redirect('mybooks')
+    else:
+        return redirect('login')
+
 def profile(request):
     return render(request, "app/profile.html")
+
+def allebook(request):
+    pdfs = Files.objects.all()
+    # images = Image.objects.all()
+    # for image in images:
+    #         texts = Text.objects.filter(image_id=image.id)            
+    return render(request, "app/allebooks.html",{
+        "pdfs":pdfs
+    }
+    )
+
+def publish(request, id):    
+    if request.user.is_authenticated:        
+        # print(id)
+        images = Image.objects.filter(pdf_id=id)        
+        for image in images:
+            texts = Text.objects.filter(image_id=image.id)
+            for text in texts:
+                # print(texts)
+                text.publish = True
+                text.save()            
+
+        return redirect('mybooks')
+    else:
+        return redirect('login')
+
+
 
 def edit(request, id, page):
     img = Image.objects.filter(pdf_id = id)        
@@ -110,7 +155,7 @@ def edit(request, id, page):
 def pdftoimages(pdf):
     pages = convert_from_path(pdf.pdf.path)
     
-    print("this ", pdf)
+    # print("this ", pdf)
 
     ouotputDir = "imag/"
     if not os.path.exists(ouotputDir):
@@ -141,7 +186,7 @@ def convert(file, ouotputDir, c, pdf):
         for page in pages:
             myfile = str(pdf) + str(c) + '.jpg'  
             page.save("media/"+myfile, 'JPEG')
-            print("my ", myfile)            
+            # print("my ", myfile)            
             i = Image.objects.create(pdf=pdf)
             i.image = myfile
             i.save()
@@ -160,7 +205,7 @@ def ImageToText(img, i):
 
 
     t = Text.objects.create(image=i)
-    t.text = text
+    t.text = text    
     t.save()
     # print(text)            
 
@@ -194,7 +239,7 @@ def epudownload(requset, id):
     pages = Image.objects.filter(pdf_id = id)
     for page in pages:
         text = Text.objects.filter(image_id = page)
-        print(text[0].text)
+        # print(text[0].text)
     
     
     # def ConvertRtfToDocx(rootDir, file):

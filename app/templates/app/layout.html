@@ -27,6 +27,7 @@
                 <a href="{% url 'index' %}">Home</a>
                 <a href="{% url 'mybooks' %}">My Books</a>
                 <a href="{% url 'profile' %}">Profile</a>
+                <a href="{% url 'allebook' %}">All Ebooks</a>
                 {% if user.is_authenticated %}
                     <a href="{% url 'logout' %}">Log Out</a>
                 {% else %}

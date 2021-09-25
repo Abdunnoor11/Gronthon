@@ -22,5 +22,6 @@ class Image(models.Model):
 class Text(models.Model):
     image = models.OneToOneField(Image, on_delete=models.CASCADE)
     text = RichTextField(blank=True, null=True)
+    publish = models.BooleanField(default=False)
 
 

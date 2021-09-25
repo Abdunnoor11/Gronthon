@@ -355,3 +355,7 @@ img{
     text-align: center;    
     height: 100%;
 }
+
+.allebooks{
+    background-image: url("/static/app/images/pexels-stanislav-kondratiev-2908984.jpg");
+}

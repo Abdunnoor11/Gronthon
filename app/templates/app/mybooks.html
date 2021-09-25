@@ -16,6 +16,8 @@ Gronthon
           <!-- <th scope="col">Pdf To Text</th> -->
           <th scope="col">Edit</th>
           <th scope="col">Download</th>
+          <th scope="col">Delete</th>
+          <th scope="col">Publish Ebook</th>
         </tr>
       </thead>
       <tbody>
@@ -31,6 +33,8 @@ Gronthon
               <a href="">.pdf</a>
               <a href="">.docx</a>
           </td>
+          <td><a href="{% url 'delete' pdf.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+          <td><a href="{% url 'publish' pdf.id %}">Publish</a></td>
         </tr>
         {% endfor %}
 
